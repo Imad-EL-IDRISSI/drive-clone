@@ -6,11 +6,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from "react-icons/fc";
 import { DiGoogleDrive } from "react-icons/di";
+import { FaFacebookSquare } from "react-icons/fa";
+
 
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { googleSignIn } = useUserAuth();
+  const { googleSignIn, facebookSignIn } = useUserAuth();
   const { signUp } = useUserAuth();
   let navigate = useNavigate();
 
@@ -28,6 +30,15 @@ function Signup() {
     e.preventDefault();
     try {
       await googleSignIn();
+      navigate("/dashboard");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+  const handleFacebookSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      await facebookSignIn();
       navigate("/dashboard");
     } catch (error) {
       toast.error(error.message);
@@ -96,6 +107,13 @@ function Signup() {
         >
           <FcGoogle className="text-3xl my-auto" />{" "}
           <p className="text-md text-gray-700">Sign In with Google</p>
+        </div>
+        <div
+          className="rounded bg-gray-100 shadow-md p-3 text-center mx-auto w-full hover:shadow-md hover:shadow-blue-300 transition-all gap-x-3 mt-4 cursor-pointer flex justify-center items-center"
+          onClick={handleFacebookSignIn}
+        >
+          <FaFacebookSquare className="text-3xl my-auto" />{" "}
+          <p className="text-md text-gray-700">Sign In with Facebook</p>
         </div>
       </div>
     </div>

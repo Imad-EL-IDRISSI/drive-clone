@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFile, FaImage, FaFilePdf, FaFileExcel, FaFileWord, FaFilePowerpoint } from "react-icons/fa";
+import { FaFile, FaFileVideo, FaImage, FaFilePdf, FaFileExcel, FaFileWord, FaFilePowerpoint } from "react-icons/fa";
 import DeleteFileButton from "./DeleteFileButton";
 import { FiDownload } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -27,16 +27,17 @@ const File = ({ file }) => {
       case ".doc":
       case ".docx":
         return <FaFileWord className="text-2xl text-blue-500" />;
+      case ".mp4":
+        return <FaFileVideo className="text-2xl text-blue-500"/>
       default:
-        // Check if the file is an image based on its file name
         return isImageFile(file.name) ? <FaImage className="text-2xl text-blue-500" /> : <FaFile className="text-2xl text-gray-500" />;
     }
   };
 
   return (
-    <div className="border-slate-400 border-[2px] rounded-md text-md px-2 py-3 m-2 gap-2 flex items-center">
-      <div className="flex items-center justify-between w-full text-[#333333]">
-        {getIcon()} {/* Render the appropriate icon */}
+    <div className="border-slate-400 border-[2px] rounded-md text-md p-4 m-2 flex gap-2 items-start">
+      <div className="flex items-center justify-between w-full ">
+        {getIcon()}
         <span className="truncate mx-2">{file.name}</span>
       </div>
       <Link to={file.url} download className="flex items-center justify-between w-full text-[#333333]">

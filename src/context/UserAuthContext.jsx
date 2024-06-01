@@ -10,6 +10,7 @@ import {
   updateProfile,
   verifyBeforeUpdateEmail,
   updatePassword,
+  FacebookAuthProvider,
 } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { toast } from "react-toastify";
@@ -33,6 +34,10 @@ function UserAuthContextProvider({ children }) {
   function googleSignIn() {
     const googleAuthProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleAuthProvider);
+  }
+  function facebookSignIn() {
+    const facebookAuthProvider = new FacebookAuthProvider();
+    return signInWithPopup(auth, facebookAuthProvider);
   }
 
   function forgotPassword(email) {
@@ -73,6 +78,7 @@ function UserAuthContextProvider({ children }) {
         signUp,
         logOut,
         googleSignIn,
+        facebookSignIn,
         forgotPassword,
         updateProfileData,
         updateProfileEmail,

@@ -11,7 +11,7 @@ IEI Drive simplifies file management, offering a seamless experience for users t
 Clone the project
 
 ```bash
-  git clone https://github.com/Imad-EL-IDRISSI/IEI-Drive.git~
+  git clone 
 ```
 
 Go to the project directory
