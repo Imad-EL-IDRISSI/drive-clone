@@ -106,14 +106,14 @@ function Signup() {
           onClick={handleGoogleSignIn}
         >
           <FcGoogle className="text-3xl my-auto" />{" "}
-          <p className="text-md text-gray-700">Sign In with Google</p>
+          <p className="text-md text-gray-700">Sign Up with Google</p>
         </div>
         <div
           className="rounded bg-gray-100 shadow-md p-3 text-center mx-auto w-full hover:shadow-md hover:shadow-blue-300 transition-all gap-x-3 mt-4 cursor-pointer flex justify-center items-center"
           onClick={handleFacebookSignIn}
         >
           <FaFacebookSquare className="text-3xl my-auto" />{" "}
-          <p className="text-md text-gray-700">Sign In with Facebook</p>
+          <p className="text-md text-gray-700">Sign Up with Facebook</p>
         </div>
       </div>
     </div>
